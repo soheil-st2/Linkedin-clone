@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { LeftSide } from './LeftSide';
+import { Main } from './Main';
 import { RightSide } from './RightSide';
 export function Home() {
   return (
@@ -17,7 +18,7 @@ export function Home() {
 
       <Layout>
         <LeftSide />
-        <div style={{ border: "1px solid red" }}>main</div>
+        <Main />
         <RightSide />
       </Layout>
     </Container>
