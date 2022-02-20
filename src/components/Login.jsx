@@ -1,10 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+//redux
+import { connect } from 'react-redux'
 
-export function Login() {
+import { signInAPI } from '../redux/actions'
+
+function Login(props) {
+
+
+    // //login
+    // const login = async (provider) => {
+    //     const res = await socialMediaAuth(provider);
+    //     console.log(res);
+    // };
+
     return (
         <Container>
+            {
+                props.user &&
+                <Redirect to="/home"/>
+            }
             <Nav>
                 <Link to="/">
                     <img src="/images/login-logo.svg" alt="" />
@@ -23,7 +39,8 @@ export function Login() {
                 </Hero>
 
                 <Form>
-                    <Google>
+                    {/* <Google onClick={() => { props.singIn() }}> */}
+                    <Google onClick={() => { props.singIn() }}>
                         <img src="/images/google.svg" alt="" />
                         <span>Sign in with Google</span>
                     </Google>
@@ -165,3 +182,15 @@ const Google = styled.button`
     }
 `;
 
+const mapStateTpProps = (state) => {
+    return {
+        user: state.userState.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    singIn: () => dispatch(signInAPI())
+})
+
+
+export default connect(mapStateTpProps, mapDispatchToProps)(Login);
