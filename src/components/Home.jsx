@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import  LeftSide  from './LeftSide';
-import { Main } from './Main';
+import  Main  from './Main';
 import { RightSide } from './RightSide';
 //react router dom
 import {Redirect} from 'react-router-dom'
@@ -79,7 +79,8 @@ const Layout = styled.div`
 
 const mapStateToProps = (state) => {
   return {
-    user:state.userState.user
+    
+    user: state.userState.user,
   }
 }
 

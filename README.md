@@ -1,3 +1,22 @@
+
+1
+rules_version = '2';
+2
+service firebase.storage {
+3
+  match /b/{bucket}/o {
+4
+    match /{allPaths=**} {
+5
+      allow read, write: if false;
+6
+    }
+7
+  }
+8
+}
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
