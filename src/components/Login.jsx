@@ -9,17 +9,11 @@ import { signInAPI } from '../redux/actions'
 function Login(props) {
 
 
-    // //login
-    // const login = async (provider) => {
-    //     const res = await socialMediaAuth(provider);
-    //     console.log(res);
-    // };
-
     return (
         <Container>
             {
                 props.user &&
-                <Redirect to="/home"/>
+                <Redirect to="/home" />
             }
             <Nav>
                 <Link to="/">
@@ -39,7 +33,7 @@ function Login(props) {
                 </Hero>
 
                 <Form>
-                    {/* <Google onClick={() => { props.singIn() }}> */}
+
                     <Google onClick={() => { props.singIn() }}>
                         <img src="/images/google.svg" alt="" />
                         <span>Sign in with Google</span>
@@ -115,7 +109,11 @@ const Section = styled.section`
     padding: 70px 0;
     max-width: 1128px;
     margin: auto;
-    border: 1px solid red;
+    position: relative;
+    
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
 `;
 
 const Hero = styled.div`
@@ -137,10 +135,10 @@ const Hero = styled.div`
 
   img {
     /* z-index: -1; */
-    width: 700px;
+    width: 550px;
     height: 670px;
     position: absolute;
-    bottom: -2px;
+    top: 0px;
     right: -150px;
     @media (max-width: 768px) {
       top: 230px;
@@ -154,6 +152,7 @@ const Hero = styled.div`
 const Form = styled.div`
    margin-top: 100px;
    width: 500px;
+   text-align: center;
    @media (max-width: 768px) {
     margin-top: 20px;
   }
@@ -165,7 +164,7 @@ const Google = styled.button`
     align-items: center;
     margin:20px auto;
     border-radius:25px ;
-
+    text-align: center;
     padding: 15px ;
     font-size: 20px;
     cursor: pointer;
@@ -178,6 +177,8 @@ const Google = styled.button`
 
     @media (max-width:768px ){
         width: 100%;
+        display: block;
+        text-align: center;
 
     }
 `;
